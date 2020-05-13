@@ -5,8 +5,10 @@ html {
 }
 #ocean {
   background-image: url(/public/img/ocean.jpeg);
-  width: 900px;
-  height: 700px;
+  /* width: 900px;
+  height: 700px; */
+  width: 1000px; 
+  height: 667px; 
   
 }
 
@@ -28,9 +30,9 @@ html {
 }
 
 .missile {
-  width: 2px;
+  width: 5px;
   height: 10px;
   position: absolute;
-  background-color: bisque;
+  background-color: yellow;
 }
 
