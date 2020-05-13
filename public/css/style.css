@@ -4,24 +4,33 @@ html {
   box-sizing: border-box;
 }
 #ocean {
+  background-image: url(/public/img/ocean.jpeg);
   width: 900px;
   height: 700px;
-  background-image: url(/public/img/ocean.jpeg);
+  
 }
 
 .player {
-  width: 70px;
-  height: 75px;
   background-image: url(/public/img/player.png);
   position: absolute;
+  width: 70px;
+  height: 75px;
+  
 }
 
 .enemy {
-  width: 70px;
-  height: 75px;
   background-image: url(/public/img/enemy.png);
   position: absolute;
+  width: 70px;
+  height: 75px;
   left: 300px;
   top: 200px
+}
+
+.missile {
+  width: 2px;
+  height: 10px;
+  position: absolute;
+  background-color: bisque;
 }
 

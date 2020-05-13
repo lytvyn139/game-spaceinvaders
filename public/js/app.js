@@ -34,6 +34,20 @@ function drawEmenies() {
   document.getElementById("enemies").innerHTML = content;
 }
 
+function moveEnemies() {
+  let speed = Math.floor(Math.random()*10);
+  console.log(`speed:${speed}px`);
+  for (let i = 0; i < enemies.length; i++) {
+    enemies[i].top = enemies[i].top + speed;
+  }
+  document.getElementById("enemies").innerHTML = content;
+}
+
+
+function drawMissiles() {
+  console.log('shots fired');
+}
+
 function borderControl() {
   console.log(`top: ${player.top}`);
   console.log(`left: ${player.left}`);
@@ -50,34 +64,17 @@ function borderControl() {
   } else if (player.left === 10) {
     player.left = 70;
     drawPlayer();
-  } 
+  }
 }
 
-
-
-
-// if (player.top === 20) {
-//   player.top = 30;
-//   drawPlayer();
-// } else if (player.top === 620) {
-//   player.top = 600;
-//   drawPlayer();
-// } else if (player.left === 820) {
-//   player.left = 800;
-//   drawPlayer();
-// } else if (player.left === 10) {
-//   player.left = 70;
-//   drawPlayer();
-// } 
-// }
-
-
-function keyPress() {
+function keyControl() {
   document.onkeydown = function (event) {
     const leftMoveKey = event.keyCode === 37 || event.keyCode === 65;
     const rightMoveKey = event.keyCode === 39 || event.keyCode === 68;
     const downMoveKey = event.keyCode === 40 || event.keyCode === 83;
     const upMoveKey = event.keyCode === 38 || event.keyCode === 87;
+    const fireKey = event.keyCode === 82;
+
     if (leftMoveKey) {
       player.left -= 10;
     }
@@ -90,11 +87,23 @@ function keyPress() {
     if (upMoveKey) {
       player.top -= 10;
     }
+    if (fireKey) {
+      drawMissiles()
+    }
+
     borderControl();
     drawPlayer();
   };
 }
 
-drawPlayer();
-drawEmenies();
-keyPress();
+
+
+function gameLoop() {
+  keyControl();
+  drawPlayer();
+  moveEnemies();
+  drawEmenies();
+  
+  setTimeout(gameLoop, 500);
+}
+gameLoop();
