@@ -1,0 +1,27 @@
+
+
+html {
+  box-sizing: border-box;
+}
+#ocean {
+  width: 900px;
+  height: 700px;
+  background-image: url(/public/img/ocean.jpeg);
+}
+
+.player {
+  width: 70px;
+  height: 75px;
+  background-image: url(/public/img/player.png);
+  position: absolute;
+}
+
+.enemy {
+  width: 70px;
+  height: 75px;
+  background-image: url(/public/img/enemy.png);
+  position: absolute;
+  left: 300px;
+  top: 200px
+}
+
